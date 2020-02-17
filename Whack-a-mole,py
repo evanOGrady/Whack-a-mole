@@ -1,0 +1,72 @@
+import random
+# Make a whack a mole game
+
+horizontal = ("  * * * * *")
+H = ("    A B C D E")
+V = [1, 2, 3, 4, 5,]
+
+print(H)
+# Make a for loop for the 
+for i in range(len(V)):
+    print (V[i], horizontal)
+
+# Time to make the mole and the random
+print("")
+H = ['A', 'B', 'C', 'D', 'E']
+moleInt = random.randint(1, 5)
+moleChar = random.choice(H)
+
+mole = moleChar, moleInt
+# Make the while loops and boolean logic
+wholeLoop = True
+numLoop = True
+
+while (wholeLoop == True):
+    whileLoop = True
+
+    while (whileLoop == True):
+        print(" ")
+        print("Can you find the mole in this grid?")
+        userLetter = input("Type a letter: ")
+        if userLetter in H:
+                whileLoop = False
+        else:
+            print("Please write a valid entry")
+            whileLoop = True
+
+    while (numLoop == True):
+        userNum = input("Type a number: ")
+        if int(userNum) in range(1, 6):
+            numLoop = False
+        else: 
+            print("Please write a valid entry")
+            numLoop = True
+    userAnswer = userLetter, int(userNum)
+    print("Your answer was " + str(userAnswer))
+
+    if (userAnswer == mole):
+        whileLoop = False
+        print("Congratulations!  You've found the mole!")
+    elif (userAnswer != mole):
+        whileLoop = False
+        print("Oh shoot!  You missed that little bugger!")
+        print("The mole was hideing here: "+ str(mole))
+    else:
+        print("You didn't submit a valid entry!")
+        whileLoop = True
+    playAgain = input("Do you want to play again?  Enter either y or n: ")
+
+    decisionLoop = True
+    while (decisionLoop == True):
+        if (playAgain == "y"):
+            print("Alright!  Let's play again!")
+            wholeLoop = True
+            decisionLoop = False
+            numLoop = True
+        elif (playAgain == "n"):
+            print("Thanks for playing")
+            decisionLoop = False
+            wholeLoop = False
+        else:
+            print("Please enter a proper value.")
+            decision = True
